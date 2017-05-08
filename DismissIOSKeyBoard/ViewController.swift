@@ -10,6 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var FirstText: UITextField!
+    @IBOutlet weak var SecondText: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -21,5 +24,20 @@ class ViewController: UIViewController {
     }
 
 
+    // Dismiss the keyboard when the user taps the "Return" key or its equivalent
+    // while editing a text field.
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true;
+    }
+   
+    @IBAction func userTappedBackground(sender: AnyObject) {
+        FirstText.resignFirstResponder()
+        SecondText.resignFirstResponder()
+        }
+    
+    @IBAction func userTappedBackgroup(_ sender: Any) {
+        view.endEditing(true)
+    }
 }
 
